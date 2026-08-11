@@ -1,4 +1,4 @@
-# My Nyumba Complete Rental System v6
+# Rental Management System
 
 - Email: admin@example.com
 Password: admin123
