@@ -33,8 +33,8 @@ require __DIR__ . '/includes/header.php';
 </div>
 <div class="mn-card"><div class="mn-card-head"><strong>Maintenance Register</strong></div><div class="mn-card-body"><div class="table-responsive"><table class="mn-table">
 <tr><th>Issue</th><th>House</th><th>Reported By</th><th>Priority</th><th>Cost</th><th>Status</th><th>Actions</th></tr>
-<tr><td>Leaking kitchen pipe</td><td>C04</td><td>Peter Mwangi</td><td><span class="mn-badge mn-overdue">High</span></td><td>KSh 4,500</td><td><span class="mn-badge mn-maint">In Progress</span></td><td><a href="maintenance-edit.php?id=1">Edit</a></td></tr>
-<tr><td>Broken socket</td><td>B12</td><td>Wanjiku Kamau</td><td><span class="mn-badge mn-due">Normal</span></td><td>KSh 1,200</td><td><span class="mn-badge mn-due">Open</span></td><td><a href="maintenance-edit.php?id=2">Edit</a></td></tr>
+<tr class="status-high-priority"><td>Leaking kitchen pipe</td><td>C04</td><td>Peter Mwangi</td><td><span class="mn-badge mn-overdue">High</span></td><td>KSh 4,500</td><td><span class="mn-badge mn-maint">In Progress</span></td><td><a href="maintenance-edit.php?id=1">Edit</a></td></tr>
+<tr class="status-maintenance"><td>Broken socket</td><td>B12</td><td>Wanjiku Kamau</td><td><span class="mn-badge mn-due">Normal</span></td><td>KSh 1,200</td><td><span class="mn-badge mn-due">Open</span></td><td><a href="maintenance-edit.php?id=2">Edit</a></td></tr>
 </table></div></div></div>
 </section>
 

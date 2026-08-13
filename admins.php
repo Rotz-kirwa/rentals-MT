@@ -42,9 +42,9 @@ require __DIR__ . '/includes/header.php';
           <table class="mn-table align-middle">
             <thead><tr><th>Administrator</th><th>Email</th><th>Role</th><th>Status</th><th>Last Login</th><th>Action</th></tr></thead>
             <tbody>
-              <tr><td><strong>Brian Chesa</strong></td><td>admin@mynyumba.co.ke</td><td><span class="badge bg-primary">Super Administrator</span></td><td><span class="badge bg-success">Active</span></td><td>Today, 10:42</td><td><a href="admin-edit.php?id=1">Edit</a></td></tr>
-              <tr><td><strong>Wanjiku Kamau</strong></td><td>wanjiku@mynyumba.co.ke</td><td><span class="badge bg-info">Property Manager</span></td><td><span class="badge bg-success">Active</span></td><td>Today, 09:18</td><td><a href="admin-edit.php?id=2">Edit</a></td></tr>
-              <tr><td><strong>Peter Mwangi</strong></td><td>peter@mynyumba.co.ke</td><td><span class="badge bg-warning text-dark">Finance Officer</span></td><td><span class="badge bg-success">Active</span></td><td>Yesterday, 16:25</td><td><a href="admin-edit.php?id=3">Edit</a></td></tr>
+              <tr class="status-active"><td><strong>Brian Chesa</strong></td><td>admin@mynyumba.co.ke</td><td><span class="badge bg-primary">Super Administrator</span></td><td><span class="badge bg-success">Active</span></td><td>Today, 10:42</td><td><a href="admin-edit.php?id=1">Edit</a></td></tr>
+              <tr class="status-active"><td><strong>Wanjiku Kamau</strong></td><td>wanjiku@mynyumba.co.ke</td><td><span class="badge bg-info">Property Manager</span></td><td><span class="badge bg-success">Active</span></td><td>Today, 09:18</td><td><a href="admin-edit.php?id=2">Edit</a></td></tr>
+              <tr class="status-active"><td><strong>Peter Mwangi</strong></td><td>peter@mynyumba.co.ke</td><td><span class="badge bg-warning text-dark">Finance Officer</span></td><td><span class="badge bg-success">Active</span></td><td>Yesterday, 16:25</td><td><a href="admin-edit.php?id=3">Edit</a></td></tr>
             </tbody>
           </table>
         </div>

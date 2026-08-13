@@ -43,7 +43,7 @@ $utilities=[
  <div class="mn-card-body"><div class="table-responsive"><table class="mn-table align-middle">
  <thead><tr><th>Utility</th><th>Billing</th><th>Unit</th><th>Cost / Unit</th><th>Fixed Charge</th><th>Properties</th><th>Status</th><th>Actions</th></tr></thead>
  <tbody><?php foreach($utilities as $u): $metered=$u['type']==='Metered'; ?>
- <tr class="<?= $u['status']==='Active'?'mn-row-occupied':'mn-row-maint' ?>">
+ <tr class="<?= $u['status'] === 'Active' ? 'mn-row-occupied' : 'mn-row-maint' ?>">
   <td><strong><?=htmlspecialchars($u['name'])?></strong></td><td><?=$u['type']?></td><td><?=htmlspecialchars($u['unit'])?></td>
   <td><?=$metered?'KSh '.number_format($u['rate'],2).' / '.$u['unit']:'—'?></td>
   <td><?=$metered?'—':'KSh '.number_format($u['fixed'],2).' / month'?></td><td><?=$u['properties']?></td>

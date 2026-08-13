@@ -68,7 +68,7 @@ require __DIR__ . '/includes/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="status-overdue">
               <td><strong>Wanjiku Kamau</strong><br><small>ID: 28745123</small></td>
               <td>0712 345 678<br><small>wanjiku@example.com</small></td>
               <td>My Nyumba Apartments</td>
@@ -90,7 +90,7 @@ require __DIR__ . '/includes/header.php';
               </td>
             </tr>
 
-            <tr>
+            <tr class="status-paid">
               <td><strong>Peter Mwangi</strong><br><small>ID: 31265478</small></td>
               <td>0713 456 789<br><small>peter@example.com</small></td>
               <td>Ngong View</td>
@@ -112,7 +112,7 @@ require __DIR__ . '/includes/header.php';
               </td>
             </tr>
 
-            <tr>
+            <tr class="status-renewal">
               <td><strong>Amina Hassan</strong><br><small>ID: 24581369</small></td>
               <td>0722 333 444<br><small>amina@example.com</small></td>
               <td>Rongai Heights</td>

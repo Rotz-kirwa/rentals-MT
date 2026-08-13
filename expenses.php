@@ -57,12 +57,12 @@ require __DIR__ . '/includes/header.php';
     <div class="mn-card-body">
       <div class="table-responsive">
         <table class="mn-table">
-          <thead><tr><th>Date</th><th>Expense</th><th>Property</th><th>Category</th><th>Paid To</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+          <thead><tr class="status-paid"><th>Date</th><th>Expense</th><th>Property</th><th>Category</th><th>Paid To</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
           <tbody>
-            <tr><td>11 Aug 2026</td><td>Plumbing repair</td><td>Rongai Heights</td><td>Maintenance</td><td>Otieno Plumbing Services</td><td>KSh 4,500</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=1">View</a> · <a href="expense-edit.php?id=1">Edit</a></td></tr>
-            <tr><td>08 Aug 2026</td><td>Garbage collection</td><td>My Nyumba Apartments</td><td>Utilities</td><td>Clean Kenya Services</td><td>KSh 12,000</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=2">View</a> · <a href="expense-edit.php?id=2">Edit</a></td></tr>
-            <tr><td>05 Aug 2026</td><td>Common-area electricity</td><td>Ngong View</td><td>Utilities</td><td>Kenya Power</td><td>KSh 8,700</td><td><span class="mn-badge mn-due">Pending</span></td><td><a href="expense-view.php?id=3">View</a> · <a href="expense-edit.php?id=3">Edit</a></td></tr>
-            <tr><td>02 Aug 2026</td><td>Painting — House A09</td><td>Ngong View</td><td>Renovation</td><td>Kamau Painters</td><td>KSh 18,500</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=4">View</a> · <a href="expense-edit.php?id=4">Edit</a></td></tr>
+            <tr class="status-maintenance"><td>11 Aug 2026</td><td>Plumbing repair</td><td>Rongai Heights</td><td>Maintenance</td><td>Otieno Plumbing Services</td><td>KSh 4,500</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=1">View</a> · <a href="expense-edit.php?id=1">Edit</a></td></tr>
+            <tr class="status-paid"><td>08 Aug 2026</td><td>Garbage collection</td><td>My Nyumba Apartments</td><td>Utilities</td><td>Clean Kenya Services</td><td>KSh 12,000</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=2">View</a> · <a href="expense-edit.php?id=2">Edit</a></td></tr>
+            <tr class="status-pending"><td>05 Aug 2026</td><td>Common-area electricity</td><td>Ngong View</td><td>Utilities</td><td>Kenya Power</td><td>KSh 8,700</td><td><span class="mn-badge mn-due">Pending</span></td><td><a href="expense-view.php?id=3">View</a> · <a href="expense-edit.php?id=3">Edit</a></td></tr>
+            <tr class="status-paid"><td>02 Aug 2026</td><td>Painting — House A09</td><td>Ngong View</td><td>Renovation</td><td>Kamau Painters</td><td>KSh 18,500</td><td><span class="mn-badge mn-paid">Paid</span></td><td><a href="expense-view.php?id=4">View</a> · <a href="expense-edit.php?id=4">Edit</a></td></tr>
           </tbody>
         </table>
       </div>

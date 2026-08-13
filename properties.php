@@ -47,10 +47,10 @@ $totalUnits=array_sum(array_column($properties,'units')); $occupied=array_sum(ar
 <div class="text-muted small"><?=count($properties)?> managed properties</div>
 </div>
 <div class="table-responsive"><table class="mn-table align-middle">
-<thead><tr><th>Property</th><th>Location</th><th>Type</th><th>Total Units</th><th>Occupied</th><th>Vacant</th><th>Maintenance</th><th>Actions</th></tr></thead>
+<thead><tr class="status-occupied"><th>Property</th><th>Location</th><th>Type</th><th>Total Units</th><th>Occupied</th><th>Vacant</th><th>Maintenance</th><th>Actions</th></tr></thead>
 <tbody>
 <?php foreach($properties as $p): ?>
-<tr class="<?= $p['vacant']>0 ? 'mn-row-vacant' : ($p['maintenance']>0 ? 'mn-row-maint' : 'mn-row-occupied') ?>">
+<tr class="property-row">
 <td class="mn-property"><strong><?=htmlspecialchars($p['name'])?></strong><div class="text-muted small">Property #<?=$p['id']?></div></td>
 <td><i class="bi bi-geo-alt"></i> <?=htmlspecialchars($p['location'])?></td>
 <td><?=htmlspecialchars($p['type'])?></td>

@@ -32,10 +32,10 @@ require __DIR__ . '/includes/header.php';
 <div class="mn-card-body"><div class="table-responsive"><table class="mn-table">
 <thead><tr><th>Date & Time</th><th>User</th><th>Action</th><th>Module</th><th>Record</th><th>IP Address</th><th>Action</th></tr></thead>
 <tbody>
-<tr><td>11 Aug 2026 10:22</td><td>Brian Admin</td><td><span class="mn-badge mn-paid">Created</span></td><td>Expenses</td><td>EXP-2026-001</td><td>192.168.1.20</td><td><a href="audit-view.php?id=1">View</a></td></tr>
-<tr><td>11 Aug 2026 09:58</td><td>Jane Wanjiru</td><td><span class="mn-badge mn-due">Updated</span></td><td>Applications</td><td>APP-2026-001</td><td>192.168.1.24</td><td><a href="audit-view.php?id=2">View</a></td></tr>
-<tr><td>11 Aug 2026 09:31</td><td>Brian Admin</td><td><span class="mn-badge mn-paid">Created</span></td><td>Tenant</td><td>Wanjiku Kamau</td><td>192.168.1.20</td><td><a href="audit-view.php?id=3">View</a></td></tr>
-<tr><td>11 Aug 2026 08:44</td><td>Brian Admin</td><td><span class="mn-badge mn-maint">Login</span></td><td>Authentication</td><td>Successful login</td><td>192.168.1.20</td><td><a href="audit-view.php?id=4">View</a></td></tr>
+<tr class="status-created"><td>11 Aug 2026 10:22</td><td>Brian Admin</td><td><span class="mn-badge mn-paid">Created</span></td><td>Expenses</td><td>EXP-2026-001</td><td>192.168.1.20</td><td><a href="audit-view.php?id=1">View</a></td></tr>
+<tr class="status-updated"><td>11 Aug 2026 09:58</td><td>Jane Wanjiru</td><td><span class="mn-badge mn-due">Updated</span></td><td>Applications</td><td>APP-2026-001</td><td>192.168.1.24</td><td><a href="audit-view.php?id=2">View</a></td></tr>
+<tr class="status-created"><td>11 Aug 2026 09:31</td><td>Brian Admin</td><td><span class="mn-badge mn-paid">Created</span></td><td>Tenant</td><td>Wanjiku Kamau</td><td>192.168.1.20</td><td><a href="audit-view.php?id=3">View</a></td></tr>
+<tr class="status-login"><td>11 Aug 2026 08:44</td><td>Brian Admin</td><td><span class="mn-badge mn-maint">Login</span></td><td>Authentication</td><td>Successful login</td><td>192.168.1.20</td><td><a href="audit-view.php?id=4">View</a></td></tr>
 </tbody></table></div></div></div>
 </section>
 

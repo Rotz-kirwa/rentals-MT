@@ -59,7 +59,7 @@ require __DIR__ . '/includes/header.php';
 <div class="form-check form-switch mb-3"><input class="form-check-input" type="checkbox"><label class="form-check-label">SMS notifications</label></div>
 <button class="btn btn-primary">Save Notification Settings</button>
 </div></div>
-<div class="mn-card" id="security"><div class="mn-card-head"><strong>Security</strong></div><div class="mn-card-body"><p>Manage passwords, sessions and login security.</p><a class="btn btn-outline-primary" href="profile.php">Account Security</a> <a class="btn btn-outline-secondary" href="audit-logs.php">View Audit Logs</a></div></div>
+<div class="mn-card" id="security"><div class="mn-card-head"><strong>Security</strong></div><div class="mn-card-body"><p>Manage passwords, sessions and login security.</p><a class="btn btn-outline-primary" href="user-profile.php">Account Security</a> <a class="btn btn-outline-secondary" href="audit-logs.php">View Audit Logs</a></div></div>
 </div></div>
 </section>
 
