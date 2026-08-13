@@ -27,9 +27,9 @@ require __DIR__ . '/includes/header.php';
           <table class="billing-table">
             <thead><tr><th>Invoice</th><th>Tenant</th><th>House</th><th>Period</th><th>Amount</th><th>Due</th><th>Status</th><th>Action</th></tr></thead>
             <tbody>
-              <tr><td>INV-2026-0086</td><td>Wanjiku Kamau</td><td>B12</td><td>August 2026</td><td>KSh 18,300</td><td>05 Aug 2026</td><td><span class="status-badge status-overdue">Overdue</span></td><td><a href="invoice-view.php?id=86">View</a></td></tr>
-              <tr><td>INV-2026-0085</td><td>Peter Mwangi</td><td>A04</td><td>August 2026</td><td>KSh 15,500</td><td>05 Aug 2026</td><td><span class="status-badge status-paid">Paid</span></td><td><a href="invoice-view.php?id=85">View</a></td></tr>
-              <tr><td>INV-2026-0084</td><td>Grace Wanjiku</td><td>C07</td><td>August 2026</td><td>KSh 12,800</td><td>05 Aug 2026</td><td><span class="status-badge status-due">Due</span></td><td><a href="invoice-view.php?id=84">View</a></td></tr>
+              <tr class="status-overdue"><td>INV-2026-0086</td><td>Wanjiku Kamau</td><td>B12</td><td>August 2026</td><td>KSh 18,300</td><td>05 Aug 2026</td><td><span class="status-badge status-overdue">Overdue</span></td><td><a href="invoice-view.php?id=86">View</a></td></tr>
+              <tr class="status-occupied"><td>INV-2026-0085</td><td>Peter Mwangi</td><td>A04</td><td>August 2026</td><td>KSh 15,500</td><td>05 Aug 2026</td><td><span class="status-badge status-paid">Paid</span></td><td><a href="invoice-view.php?id=85">View</a></td></tr>
+              <tr class="status-vacant"><td>INV-2026-0084</td><td>Grace Wanjiku</td><td>C07</td><td>August 2026</td><td>KSh 12,800</td><td>05 Aug 2026</td><td><span class="status-badge status-due">Due</span></td><td><a href="invoice-view.php?id=84">View</a></td></tr>
             </tbody>
           </table>
         </div>

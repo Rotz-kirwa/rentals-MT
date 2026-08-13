@@ -1,10 +1,10 @@
 <?php require_once __DIR__ . '/includes/auth.php'; $pageTitle='Add House'; require __DIR__ . '/includes/header.php'; ?>
 <main id="main" class="main"><div class="pagetitle"><h1>Add House</h1><p>Create a rental unit with charges, property and occupancy details.</p></div><section class="section"><div class="card"><div class="card-body"><form class="row g-3">
 <div class="col-12"><div class="mn-form-section">Property & House</div></div>
-<div class="col-md-6"><label class="form-label">House Name / Number</label><input class="form-control" placeholder="e.g. B12" required></div>
-<div class="col-md-6"><label class="form-label">Attached Property</label><select class="form-select"><option>My Nyumba Apartments</option><option>Ngong View</option><option>Rongai Heights</option></select></div>
+<div class="col-md-6"><label class="form-label">House / Unit Number</label><input class="form-control" placeholder="e.g. B12" required></div>
+<div class="col-md-6"><label class="form-label">Property</label><select class="form-select"><option>My Nyumba Apartments</option><option>Ngong View</option><option>Rongai Heights</option></select></div>
 <div class="col-md-4"><label class="form-label">House Type</label><select class="form-select"><option>Bedsitter</option><option>1 Bedroom</option><option>2 Bedroom</option><option>3 Bedroom</option><option>Shop</option><option>Office</option></select></div>
-<div class="col-md-4"><label class="form-label">Status</label><select class="form-select"><option>Vacant</option><option>Occupied</option><option>Maintenance</option></select></div>
+<div class="col-md-4"><label class="form-label">Status</label><select class="form-select"><option>Vacant</option><option>Occupied</option><option>Under Maintenance</option></select></div>
 <div class="col-md-4"><label class="form-label">Available From</label><input class="form-control" type="date"></div>
 <div class="col-12"><div class="mn-form-section">Charges</div></div>
 <div class="col-md-3"><label class="form-label">Monthly Rent (KSh)</label><input class="form-control" type="number"></div>

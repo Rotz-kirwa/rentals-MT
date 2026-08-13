@@ -19,7 +19,7 @@ require __DIR__ . '/includes/header.php';
           <a href="admin-create.php" class="btn btn-primary"><i class="bi bi-person-plus"></i> Add Admin</a>
         </div>
         <div class="table-responsive">
-          <table class="table">
+          <table class="mn-table align-middle">
             <thead><tr><th>Administrator</th><th>Email</th><th>Role</th><th>Status</th><th>Last Login</th><th>Action</th></tr></thead>
             <tbody>
               <tr><td><strong>Brian Chesa</strong></td><td>admin@mynyumba.co.ke</td><td><span class="badge bg-primary">Super Administrator</span></td><td><span class="badge bg-success">Active</span></td><td>Today, 10:42</td><td><a href="admin-edit.php?id=1">Edit</a></td></tr>

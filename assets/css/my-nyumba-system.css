@@ -5,3 +5,136 @@
 .mn-avatar-icon.sm{width:32px;height:32px;min-width:32px;font-size:14px}
 .mn-message-row,.mn-notification-row{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #edf0f2}
 .mn-message-row:last-child,.mn-notification-row:last-child{border-bottom:0}
+
+/* Rental status table styling — inspired by the clean CRM list layout. */
+.mn-table tbody tr.mn-row-occupied{background:#eaf8ef}
+.mn-table tbody tr.mn-row-vacant{background:#fff0f0}
+.mn-table tbody tr.mn-row-maint{background:#f1f3f5}
+.mn-table tbody tr.mn-row-occupied:hover{background:#def3e6}
+.mn-table tbody tr.mn-row-vacant:hover{background:#ffe4e4}
+.mn-table tbody tr.mn-row-maint:hover{background:#e7eaed}
+.mn-table tbody tr.mn-row-occupied td:first-child{border-left:4px solid #20a66a}
+.mn-table tbody tr.mn-row-vacant td:first-child{border-left:4px solid #dc3545}
+.mn-table tbody tr.mn-row-maint td:first-child{border-left:4px solid #6c757d}
+.mn-badge.mn-vacant{background:#fde2e2;color:#b42318}
+.mn-badge.mn-occupied{background:#dff5e8;color:#177245}
+.mn-badge.mn-maint{background:#e9ecef;color:#495057}
+.mn-status-legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mn-status-legend .legend-label{font-size:12px;color:#6c757d;margin-right:2px}
+.mn-table .mn-number{font-weight:700;color:#212529;white-space:nowrap}
+.mn-table .mn-property{font-weight:600;color:#303740}
+.mn-table .mn-muted{font-size:12px;color:#6c757d}
+.mn-table .mn-actions{white-space:nowrap}
+.mn-table tbody tr{transition:background .15s ease}
+
+/* Houses / Units register */
+.houses-register-table{min-width:1180px}.houses-register-table th{white-space:nowrap}.houses-register-table td{vertical-align:middle}.houses-register-table .mn-number{min-width:95px}.houses-register-table .mn-property{min-width:175px}.houses-register-table .mn-actions{min-width:100px}.houses-register-table tbody tr.mn-row-occupied td:first-child{border-left:4px solid #20a66a}.houses-register-table tbody tr.mn-row-vacant td:first-child{border-left:4px solid #dc3545}.houses-register-table tbody tr.mn-row-maint td:first-child{border-left:4px solid #6c757d}
+
+/* ================================================================
+   Global CRM-style tables
+   Keeps every register/list page visually consistent with
+   Properties and Houses / Units.
+   ================================================================ */
+.mn-table,
+.billing-table,
+.main .card .table,
+.main .card table.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  font-size:13px;
+}
+.mn-table thead th,
+.billing-table thead th,
+.main .card .table thead th,
+.main .card table.table thead th{
+  padding:13px 14px;
+  background:#f7f8fa;
+  color:#68707a;
+  border-bottom:1px solid #e6e9ed;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+.mn-table tbody td,
+.billing-table tbody td,
+.main .card .table tbody td,
+.main .card table.table tbody td{
+  padding:13px 14px;
+  border-bottom:1px solid #edf0f2;
+  color:#303740;
+  vertical-align:middle;
+  background:#fff;
+}
+.mn-table tbody tr,
+.billing-table tbody tr,
+.main .card .table tbody tr,
+.main .card table.table tbody tr{
+  transition:background-color .15s ease, box-shadow .15s ease;
+}
+.mn-table tbody tr:hover td,
+.billing-table tbody tr:hover td,
+.main .card .table tbody tr:hover td,
+.main .card table.table tbody tr:hover td{
+  background:#f8fafc;
+}
+.mn-table tbody tr:last-child td,
+.billing-table tbody tr:last-child td,
+.main .card .table tbody tr:last-child td,
+.main .card table.table tbody tr:last-child td{border-bottom:0}
+
+/* Status-aware rows used by registers across the system. */
+.mn-table tbody tr.status-occupied td,
+.billing-table tbody tr.status-occupied td,
+.main .card table tbody tr.status-occupied td{background:#eaf8ef}
+.mn-table tbody tr.status-vacant td,
+.billing-table tbody tr.status-vacant td,
+.main .card table tbody tr.status-vacant td{background:#fff0f0}
+.mn-table tbody tr.status-maintenance td,
+.billing-table tbody tr.status-maintenance td,
+.main .card table tbody tr.status-maintenance td{background:#f1f3f5}
+.mn-table tbody tr.status-overdue td,
+.billing-table tbody tr.status-overdue td{background:#fff7f7}
+
+.mn-table tbody tr.status-occupied td:first-child,
+.billing-table tbody tr.status-occupied td:first-child{border-left:4px solid #20a66a}
+.mn-table tbody tr.status-vacant td:first-child,
+.billing-table tbody tr.status-vacant td:first-child{border-left:4px solid #dc3545}
+.mn-table tbody tr.status-maintenance td:first-child,
+.billing-table tbody tr.status-maintenance td:first-child{border-left:4px solid #6c757d}
+.mn-table tbody tr.status-overdue td:first-child,
+.billing-table tbody tr.status-overdue td:first-child{border-left:4px solid #dc3545}
+
+/* Make list/register tables breathe like the reference CRM screen. */
+.main .table-responsive{
+  border-radius:10px;
+}
+.main .table-responsive > table{
+  margin-bottom:0;
+}
+.main .card,
+.main .mn-card{
+  border-color:#e8ebef;
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.main .card .card-body{padding:20px}
+
+/* Consistent action controls in tables. */
+.mn-table .btn-sm,
+.billing-table .btn-sm,
+.main .card table .btn-sm{font-size:12px}
+.mn-table a:not(.btn),
+.billing-table a:not(.btn),
+.main .card table a:not(.btn){font-weight:600}
+
+@media(max-width:768px){
+  .mn-table,
+  .billing-table,
+  .main .card .table{min-width:900px}
+  .main .table-responsive{overflow-x:auto}
+}
