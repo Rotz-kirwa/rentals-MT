@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Maintenance
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Maintenance';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 
 <div class="pagetitle"><h1>Maintenance Requests</h1><p>Track repairs, contractors, costs and completion.</p></div>

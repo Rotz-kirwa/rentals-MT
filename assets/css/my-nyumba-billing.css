@@ -1,3 +1,9 @@
+/* ============================================================
+   MY NYUMBA SYSTEM STYLES
+   Standard section order: Variables → Global → Layout → Components
+   → Tables → Status → Forms → Responsive
+   ============================================================ */
+
 
 /* My Nyumba - invoices & receipts */
 .billing-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:24px}

@@ -1,4 +1,11 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Auth
+ * DESCRIPTION: Authentication and session protection.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/config.php';
 
 // Protect admin pages. Set $_SESSION["user"] after a successful login.

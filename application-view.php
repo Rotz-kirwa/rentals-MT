@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Application View
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Application Details';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 
 <div class="pagetitle"><h1>Application Details</h1><p>Application APP-2026-001.</p></div>

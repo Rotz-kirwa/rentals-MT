@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Maintenance Create
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Add Maintenance';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 
 <div class="pagetitle"><h1>Add Maintenance Request</h1><p>Log a repair or maintenance job against a property or house.</p></div>

@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Receipt View
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Receipt';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle"><h1>Receipt</h1><p>Receipt RCT-2026-0812.</p></div><section class="section"><div class="card"><div class="card-body"><form class="row g-3">
 <div class="col-md-6"><label class="form-label">Tenant</label><select class="form-select"><option>Wanjiku Kamau — B12</option><option>Peter Mwangi — A04</option></select></div>

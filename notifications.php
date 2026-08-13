@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Notifications
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Notifications';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 
 <div class="pagetitle"><h1>Notifications</h1><p>Stay on top of rent, leases, maintenance and system events.</p></div>

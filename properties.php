@@ -1,6 +1,21 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Properties
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
-$pageTitle='Properties';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
+$pageTitle = 'Properties';
 require __DIR__ . '/includes/header.php';
 $properties=[
  ['id'=>1,'name'=>'My Nyumba Apartments','location'=>'Ongata Rongai, Kajiado County','type'=>'Apartment Block','units'=>62,'occupied'=>51,'vacant'=>8,'maintenance'=>3],
@@ -9,6 +24,11 @@ $properties=[
 ];
 $totalUnits=array_sum(array_column($properties,'units')); $occupied=array_sum(array_column($properties,'occupied')); $vacant=array_sum(array_column($properties,'vacant')); $maintenance=array_sum(array_column($properties,'maintenance'));
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle"><h1>Property Management</h1><p>Manage apartment blocks, flats, estates and groups of rental units from one place.</p></div>
 <section class="section">
@@ -42,4 +62,12 @@ $totalUnits=array_sum(array_column($properties,'units')); $occupied=array_sum(ar
 </tbody></table></div>
 </div></div>
 </section></main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?>

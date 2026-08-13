@@ -1,4 +1,11 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Billing Nav
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 // Reusable billing menu for My Nyumba
 ?>
 <li class="nav-item">

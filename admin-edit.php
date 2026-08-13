@@ -1,7 +1,22 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Admin Edit
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/permissions.php';
 requirePermission('admins');
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Edit Administrator';
 require __DIR__ . '/includes/header.php';
 
@@ -12,6 +27,11 @@ $permissionGroups = [
   'Administration' => ['reports'=>'Reports','admins'=>'Administrators','settings'=>'Settings'],
 ];
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
   <div class="pagetitle"><h1>Edit Administrator</h1><p>Create an admin account and assign exactly what the user can access.</p></div>
   <section class="section">

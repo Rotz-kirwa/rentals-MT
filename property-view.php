@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Property View
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
-$pageTitle='Property Details';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
+$pageTitle = 'Property Details';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle"><h1>My Nyumba Apartments</h1><p>Property details and units.</p></div>
 <section class="section">
@@ -15,4 +35,12 @@ require __DIR__ . '/includes/header.php';
 <div class="col-lg-4"><div class="mn-card"><div class="mn-card-head"><strong>Unit Summary</strong></div><div class="mn-card-body"><p>Occupied <strong class="float-end">51</strong></p><p>Vacant <strong class="float-end">8</strong></p><p>Maintenance <strong class="float-end">3</strong></p><hr><p>Total <strong class="float-end">62</strong></p><a class="btn btn-primary w-100" href="house-create.php?property_id=1">+ Add Unit to Property</a></div></div></div>
 </div></section>
 </main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?>

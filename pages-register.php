@@ -1,8 +1,24 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Pages Register
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/includes/config.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Pages / Register - My Nyumba';
 require __DIR__ . '/includes/auth-header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main>
     <div class="container">
 

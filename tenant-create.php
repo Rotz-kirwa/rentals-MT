@@ -1,4 +1,25 @@
-<?php require_once __DIR__ . '/includes/auth.php'; $pageTitle='Add Tenant'; require __DIR__ . '/includes/header.php'; ?>
+<?php
+/**
+ * ============================================================
+ * PAGE: Tenant Create
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
+require_once __DIR__ . '/includes/auth.php'; // ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
+$pageTitle = 'Add Tenant'; require __DIR__ . '/includes/header.php'; ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main"><div class="pagetitle"><h1>Add Tenant</h1><p>Register a tenant and attach them to a house and lease.</p></div><section class="section"><div class="card"><div class="card-body"><form class="row g-3">
 <div class="col-12"><div class="mn-form-section">Tenant Information</div></div>
 <div class="col-md-6"><label class="form-label">Full Name</label><input class="form-control" required></div><div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email"></div>
@@ -9,4 +30,12 @@
 <div class="col-md-3"><label class="form-label">Monthly Rent</label><input class="form-control" type="number"></div><div class="col-md-3"><label class="form-label">Deposit</label><input class="form-control" type="number"></div><div class="col-md-3"><label class="form-label">Water</label><input class="form-control" placeholder="Metered / fixed"></div><div class="col-md-3"><label class="form-label">Garbage</label><input class="form-control" type="number"></div>
 <div class="col-md-4"><label class="form-label">Lease Start Date</label><input class="form-control" type="date"></div><div class="col-md-4"><label class="form-label">Lease End Date</label><input class="form-control" type="date"></div><div class="col-md-4"><label class="form-label">Rent Due Day</label><select class="form-select"><option>1st</option><option>5th</option><option>10th</option><option>15th</option></select></div>
 <div class="col-12"><button class="btn btn-primary">Save Tenant</button></div></form></div></div></section></main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?><link rel="stylesheet" href="assets/css/my-nyumba-system.css"></body></html>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?><link rel="stylesheet" href="assets/css/my-nyumba-system.css"></body></html>

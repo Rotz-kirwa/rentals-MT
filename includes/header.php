@@ -1,5 +1,16 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Header
+ * DESCRIPTION: Reusable application header and navigation.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/config.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = $pageTitle ?? APP_NAME;
 $user = currentUser();
 $userName = htmlspecialchars($user['name'] ?? 'Brian Chesa', ENT_QUOTES, 'UTF-8');

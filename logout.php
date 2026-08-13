@@ -1,4 +1,11 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Logout
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/includes/config.php';
 $_SESSION = [];
 if (ini_get('session.use_cookies')) {

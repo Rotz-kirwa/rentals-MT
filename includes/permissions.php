@@ -1,4 +1,11 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Permissions
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 // My Nyumba role-based access control.
 // Replace this demo session data with database-backed roles when MySQL is connected.
 

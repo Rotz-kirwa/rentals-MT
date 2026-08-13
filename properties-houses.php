@@ -1,5 +1,20 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Properties Houses
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Houses / Units';
 require __DIR__ . '/includes/header.php';
 $propertyId=(int)($_GET['property_id'] ?? 0);
@@ -17,6 +32,11 @@ $houses=[
 if($propertyId && isset($properties[$propertyId])) $houses=array_values(array_filter($houses,fn($h)=>$h['property_id']===$propertyId));
 $total=count($houses); $occ=count(array_filter($houses,fn($h)=>$h['status']==='Occupied')); $vac=count(array_filter($houses,fn($h)=>$h['status']==='Vacant')); $maint=count(array_filter($houses,fn($h)=>$h['status']==='Under Maintenance'));
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle"><h1>Houses / Units</h1><p><?= $propertyId && isset($properties[$propertyId]) ? htmlspecialchars($properties[$propertyId]).' — units' : 'View and manage all rental units across your properties.' ?></p></div>
 <section class="section">
@@ -48,4 +68,12 @@ $total=count($houses); $occ=count(array_filter($houses,fn($h)=>$h['status']==='O
 </tbody></table></div>
 </div></div>
 </section></main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?>

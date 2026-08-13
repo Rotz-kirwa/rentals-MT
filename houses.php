@@ -1,5 +1,20 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Houses
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Houses / Units';
 require __DIR__ . '/includes/header.php';
 
@@ -31,6 +46,11 @@ $occ = count(array_filter($houses, fn($h) => $h['status'] === 'Occupied'));
 $vac = count(array_filter($houses, fn($h) => $h['status'] === 'Vacant'));
 $maint = count(array_filter($houses, fn($h) => $h['status'] === 'Under Maintenance'));
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle">
     <h1>Houses / Units</h1>
@@ -131,4 +151,12 @@ $maint = count(array_filter($houses, fn($h) => $h['status'] === 'Under Maintenan
     </div>
 </section>
 </main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?>

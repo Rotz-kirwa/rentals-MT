@@ -1,5 +1,16 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Auth Header
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/config.php';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = $pageTitle ?? APP_NAME;
 ?>
 <!DOCTYPE html>

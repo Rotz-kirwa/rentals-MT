@@ -1,4 +1,11 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Pages Login
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
 require_once __DIR__ . '/includes/config.php';
 
 // Demo login. Replace with database authentication when your users table is ready.
@@ -30,9 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
 $pageTitle = 'Login';
 require __DIR__ . '/includes/auth-header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
 
 <main>
   <div class="container">

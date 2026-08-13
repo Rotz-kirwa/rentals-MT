@@ -1,8 +1,28 @@
 <?php
+/**
+ * ============================================================
+ * PAGE: Property Edit
+ * DESCRIPTION: My Nyumba rental management system page.
+ * ============================================================
+ */
+
+// ============================================================
+// 1. AUTHENTICATION & SESSION
+// ============================================================
+
 require_once __DIR__ . '/includes/auth.php';
-$pageTitle='Edit Property';
+// ============================================================
+// 2. PAGE CONFIGURATION
+// ============================================================
+
+$pageTitle = 'Edit Property';
 require __DIR__ . '/includes/header.php';
 ?>
+
+<!-- ============================================================
+     3. PAGE CONTENT
+     ============================================================ -->
+
 <main id="main" class="main">
 <div class="pagetitle"><h1>Edit Property</h1><p>Update property information and unit capacity.</p></div>
 <section class="section"><div class="card"><div class="card-body"><form class="row g-3">
@@ -15,4 +35,12 @@ require __DIR__ . '/includes/header.php';
 <div class="col-12"><button class="btn btn-primary">Save Changes</button> <a href="properties.php" class="btn btn-secondary">Cancel</a></div>
 </form></div></div></section>
 </main>
-<?php require __DIR__ . '/includes/footer.php'; require __DIR__ . '/includes/scripts.php'; ?>
+
+<?php
+// ============================================================
+// 4. FOOTER & SCRIPTS
+// ============================================================
+
+require __DIR__ . '/includes/footer.php';
+require __DIR__ . '/includes/scripts.php';
+?>
