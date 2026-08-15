@@ -16,18 +16,18 @@ export class PropertyService {
       orderBy: { createdAt: 'desc' },
     });
 
-    return properties.map((prop) => {
+    return properties.map((prop: any) => {
       const totalUnits = prop.houses.length;
-      const occupiedUnits = prop.houses.filter((h) => h.status === 'OCCUPIED').length;
-      const vacantUnits = prop.houses.filter((h) => h.status === 'VACANT').length;
-      const maintenanceUnits = prop.houses.filter((h) => h.status === 'MAINTENANCE').length;
+      const occupiedUnits = prop.houses.filter((h: any) => h.status === 'OCCUPIED').length;
+      const vacantUnits = prop.houses.filter((h: any) => h.status === 'VACANT').length;
+      const maintenanceUnits = prop.houses.filter((h: any) => h.status === 'MAINTENANCE').length;
       const occupancyRate = totalUnits > 0 ? Math.round((occupiedUnits / totalUnits) * 100) : 0;
 
       let monthlyRevenue = 0;
       let totalArrears = 0;
 
-      prop.houses.forEach((house) => {
-        house.invoices.forEach((inv) => {
+      prop.houses.forEach((house: any) => {
+        house.invoices.forEach((inv: any) => {
           monthlyRevenue += Number(inv.paidAmount);
           totalArrears += Number(inv.balance);
         });
@@ -96,9 +96,9 @@ export class PropertyService {
     }
 
     const totalUnits = property.houses.length;
-    const occupiedUnits = property.houses.filter((h) => h.status === 'OCCUPIED').length;
-    const vacantUnits = property.houses.filter((h) => h.status === 'VACANT').length;
-    const maintenanceUnits = property.houses.filter((h) => h.status === 'MAINTENANCE').length;
+    const occupiedUnits = property.houses.filter((h: any) => h.status === 'OCCUPIED').length;
+    const vacantUnits = property.houses.filter((h: any) => h.status === 'VACANT').length;
+    const maintenanceUnits = property.houses.filter((h: any) => h.status === 'MAINTENANCE').length;
     const occupancyRate = totalUnits > 0 ? Math.round((occupiedUnits / totalUnits) * 100) : 0;
 
     return {

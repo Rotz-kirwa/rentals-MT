@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyToken, AuthTokenPayload } from '../utils/auth.js';
-import { UserRole } from '@my-nyumba/database';
+
+export type UserRole = 'SUPER_ADMIN' | 'PROPERTY_MANAGER' | 'FINANCE_OFFICER' | 'CARETAKER' | string;
 
 export interface AuthenticatedRequest extends Request {
   user?: AuthTokenPayload;
