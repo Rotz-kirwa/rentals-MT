@@ -12,7 +12,7 @@
     "start": "npm run dev",
     "dev:api": "npm run dev --workspace=apps/api",
     "dev:web": "npm run dev --workspace=apps/web",
-    "postinstall": "npm run db:generate",
+    "postinstall": "npm run db:generate && node apps/web/create-entrypoint.js",
     "build": "npm run db:generate && npm run build --workspace=apps/api && npm run build --workspace=apps/web",
     "test": "npm run test --workspaces --if-present",
     "db:generate": "npx prisma generate --schema=packages/database/prisma/schema.prisma",
