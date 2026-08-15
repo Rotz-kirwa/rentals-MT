@@ -12,7 +12,8 @@
     "start": "npm run dev",
     "dev:api": "npm run dev --workspace=apps/api",
     "dev:web": "npm run dev --workspace=apps/web",
-    "build": "npm run build --workspaces --if-present",
+    "postinstall": "npm run db:generate",
+    "build": "npm run db:generate --workspace=packages/database && npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "db:generate": "npm run db:generate --workspace=packages/database",
     "db:push": "npm run db:push --workspace=packages/database"
