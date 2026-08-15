@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx prisma generate --schema=../../packages/database/prisma/schema.prisma && tsc && vite build && node create-entrypoint.js",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
