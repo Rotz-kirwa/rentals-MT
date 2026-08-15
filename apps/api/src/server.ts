@@ -40,6 +40,27 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(globalLimiter);
 
+// Root & Health Endpoints
+app.get('/', (_req, res) => {
+  res.json({
+    name: 'My Nyumba Property Management REST API',
+    version: '1.0.0',
+    status: 'ONLINE',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health: '/api/v1/health',
+      auth: '/api/v1/auth',
+      dashboard: '/api/v1/dashboard/stats',
+      properties: '/api/v1/properties',
+      invoices: '/api/v1/invoices',
+    },
+  });
+});
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // Register API Routes
 app.use('/api/v1', healthRouter);
 app.use('/api/v1/auth', authLimiter, authRouter);
