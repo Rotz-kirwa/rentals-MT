@@ -6,11 +6,11 @@
   "rewrites": [
     {
       "source": "/api/v1/:path*",
-      "destination": "/apps/api/src/server.ts"
+      "destination": "/api/index.ts"
     },
     {
       "source": "/api/:path*",
-      "destination": "/apps/api/src/server.ts"
+      "destination": "/api/index.ts"
     },
     {
       "source": "/(.*)",
