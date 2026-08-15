@@ -5,6 +5,7 @@ export default function Login() {
   const { login } = useAuth();
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('admin123');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -66,200 +67,317 @@ export default function Login() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
-      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-      color: '#f8fafc',
-      padding: '20px',
+      background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 40%, #818cf8 100%)',
+      fontFamily: "'Nunito', 'Inter', system-ui, -apple-system, sans-serif",
+      padding: '24px',
       boxSizing: 'border-box'
     }}>
       <style>{`
-        .mn-input:focus {
-          outline: none !important;
-          border-color: #38bdf8 !important;
-          box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
-        }
-        .mn-btn-primary {
-          background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+        .mn-light-input {
+          width: 100%;
+          padding: 14px 18px;
+          border-radius: 12px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          color: #1e293b;
+          font-size: 14px;
+          box-sizing: border-box;
           transition: all 0.2s ease;
         }
-        .mn-btn-primary:hover {
-          opacity: 0.92;
-          transform: translateY(-1px);
-          box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.5);
+        .mn-light-input:focus {
+          outline: none !important;
+          background: #ffffff !important;
+          border-color: #6366f1 !important;
+          box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15) !important;
         }
-        .mn-demo-btn {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          color: #94a3b8;
-          transition: all 0.15s ease;
-        }
-        .mn-demo-btn:hover {
-          background: rgba(255, 255, 255, 0.12);
+        .mn-pill-btn {
+          background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+          border-radius: 50px;
           color: #ffffff;
-          border-color: rgba(255, 255, 255, 0.25);
+          font-weight: 700;
+          letter-spacing: 0.3px;
+          border: none;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+        }
+        .mn-pill-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px -4px rgba(79, 70, 229, 0.5);
+          opacity: 0.96;
+        }
+        .mn-demo-pill {
+          background: #f1f5f9;
+          border: 1px solid #cbd5e1;
+          color: #475569;
+          border-radius: 30px;
+          padding: 8px 16px;
+          font-size: 13px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .mn-demo-pill:hover {
+          background: #6366f1;
+          color: #ffffff;
+          border-color: #6366f1;
+          transform: translateY(-1px);
+        }
+        @media (max-width: 900px) {
+          .mn-split-visual {
+            display: none !important;
+          }
+          .mn-card-container {
+            max-width: 480px !important;
+          }
         }
       `}</style>
 
-      <div style={{
+      {/* Main Floating Split Card */}
+      <div className="mn-card-container" style={{
         width: '100%',
-        maxWidth: '440px',
-        background: 'rgba(30, 41, 59, 0.85)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        borderRadius: '16px',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-        padding: '36px 32px',
-        boxSizing: 'border-box'
+        maxWidth: '1040px',
+        minHeight: '620px',
+        background: '#ffffff',
+        borderRadius: '24px',
+        boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.3)',
+        display: 'flex',
+        overflow: 'hidden'
       }}>
-        {/* Brand Header */}
-        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '56px',
-            height: '56px',
-            borderRadius: '14px',
-            background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(37, 99, 235, 0.2))',
-            border: '1px solid rgba(56, 189, 248, 0.3)',
-            marginBottom: '16px'
-          }}>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-          </div>
-          <h1 style={{ fontSize: '26px', fontWeight: '700', margin: '0 0 6px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
-            My Nyumba
-          </h1>
-          <p style={{ fontSize: '14px', color: '#94a3b8', margin: 0 }}>
-            Property Operations & Financial Operating Platform
-          </p>
-        </div>
-
-        {error && (
-          <div style={{
-            background: 'rgba(239, 68, 68, 0.15)',
-            border: '1px solid rgba(239, 68, 68, 0.3)',
-            borderRadius: '10px',
-            padding: '12px 14px',
-            fontSize: '13px',
-            color: '#fca5a5',
-            marginBottom: '20px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}>
-            <span>⚠️</span>
-            <span>{error}</span>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-          <div>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#cbd5e1', marginBottom: '6px' }}>
-              Work Email
-            </label>
-            <input
-              type="email"
-              className="mn-input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@example.com"
-              required
-              style={{
-                width: '100%',
-                padding: '12px 14px',
-                borderRadius: '10px',
-                background: 'rgba(15, 23, 42, 0.6)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                color: '#ffffff',
-                fontSize: '14px',
-                boxSizing: 'border-box',
-                transition: 'all 0.2s'
-              }}
-            />
-          </div>
-
-          <div>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#cbd5e1', marginBottom: '6px' }}>
-              Password
-            </label>
-            <input
-              type="password"
-              className="mn-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              style={{
-                width: '100%',
-                padding: '12px 14px',
-                borderRadius: '10px',
-                background: 'rgba(15, 23, 42, 0.6)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                color: '#ffffff',
-                fontSize: '14px',
-                boxSizing: 'border-box',
-                transition: 'all 0.2s'
-              }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '13px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', color: '#94a3b8' }}>
-              <input type="checkbox" defaultChecked style={{ accentColor: '#0284c7', borderRadius: '4px' }} />
-              Remember session
-            </label>
-            <a href="#" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: '500' }}>Forgot password?</a>
-          </div>
-
-          <button
-            type="submit"
-            className="mn-btn-primary"
-            disabled={loading}
+        
+        {/* LEFT COLUMN: Futuristic Residential Visual Feature */}
+        <div className="mn-split-visual" style={{
+          flex: '1.1',
+          position: 'relative',
+          padding: '28px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          background: '#0f172a'
+        }}>
+          <img
+            src="/assets/img/futuristic_residential_complex.png"
+            alt="Futuristic Luxury Residential Complex"
             style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%',
-              padding: '13px',
-              borderRadius: '10px',
-              border: 'none',
-              color: '#ffffff',
-              fontSize: '15px',
-              fontWeight: '600',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              marginTop: '6px'
+              height: '100%',
+              objectFit: 'cover',
+              opacity: 0.92
             }}
-          >
-            {loading ? 'Authenticating...' : 'Sign In to Workspace'}
-          </button>
-        </form>
+          />
 
-        {/* Demo Fast Access */}
-        <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', textAlign: 'center' }}>
-          <p style={{ fontSize: '12px', color: '#64748b', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: '600' }}>
-            Instant Demo Access
-          </p>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-            <button
-              onClick={() => handleDemoAccount('SUPER_ADMIN')}
-              className="mn-demo-btn"
-              style={{ padding: '8px 14px', borderRadius: '8px', fontSize: '12px', fontWeight: '500', cursor: 'pointer' }}
-            >
-              Super Admin
-            </button>
-            <button
-              onClick={() => handleDemoAccount('PROPERTY_MANAGER')}
-              className="mn-demo-btn"
-              style={{ padding: '8px 14px', borderRadius: '8px', fontSize: '12px', fontWeight: '500', cursor: 'pointer' }}
-            >
-              Property Manager
-            </button>
+          {/* Gradient Overlay */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.75) 100%)'
+          }} />
+
+          {/* Top Brand Tag */}
+          <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              background: 'rgba(255, 255, 255, 0.25)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '1px solid rgba(255, 255, 255, 0.35)'
+            }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <span style={{ color: '#ffffff', fontSize: '22px', fontWeight: '800', letterSpacing: '-0.3px', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+              My Nyumba
+            </span>
+          </div>
+
+          {/* Bottom Floating Stats & Motto */}
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              borderRadius: '18px',
+              padding: '22px 24px',
+              color: '#ffffff'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+                <span style={{ fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.8px', color: '#a7f3d0' }}>
+                  Smart Residential Operating System
+                </span>
+              </div>
+              <h3 style={{ margin: '0 0 6px 0', fontSize: '22px', fontWeight: '800', lineHeight: '1.3' }}>
+                Next-Generation Property Operations
+              </h3>
+              <p style={{ margin: 0, fontSize: '13px', color: '#e2e8f0', lineHeight: '1.5' }}>
+                Automated billing, real-time occupancy analytics, and resident management for luxury communities.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '12px', color: '#475569' }}>
-          Protected by Enterprise Security &bull; Powered by <span style={{ color: '#64748b' }}>Ifix Network Ltd</span>
+        {/* RIGHT COLUMN: Clean Light-Theme Form */}
+        <div style={{
+          flex: '1',
+          padding: '48px 44px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          background: '#ffffff'
+        }}>
+          <div>
+            {/* Top Auth Navigation */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '36px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '14px', fontWeight: '700', color: '#4f46e5' }}>My Nyumba Platform</span>
+              </div>
+              <div style={{ fontSize: '13px', color: '#64748b' }}>
+                Need help? <a href="#" style={{ color: '#6366f1', textDecoration: 'none', fontWeight: '600' }}>Contact Support</a>
+              </div>
+            </div>
+
+            {/* Header */}
+            <div style={{ marginBottom: '28px' }}>
+              <h2 style={{ fontSize: '28px', fontWeight: '800', color: '#0f172a', margin: '0 0 6px 0', letterSpacing: '-0.5px' }}>
+                Welcome Back
+              </h2>
+              <p style={{ fontSize: '14px', color: '#64748b', margin: 0 }}>
+                Login to your account to manage properties
+              </p>
+            </div>
+
+            {error && (
+              <div style={{
+                background: '#fef2f2',
+                border: '1px solid #fecaca',
+                borderRadius: '12px',
+                padding: '12px 16px',
+                fontSize: '13px',
+                color: '#dc2626',
+                marginBottom: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <span>⚠️</span>
+                <span>{error}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '8px' }}>
+                  Username / Email
+                </label>
+                <input
+                  type="email"
+                  className="mn-light-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="admin@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#334155', marginBottom: '8px' }}>
+                  Password
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    className="mn-light-input"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    style={{ paddingRight: '46px' }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      position: 'absolute',
+                      right: '14px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      border: 'none',
+                      background: 'none',
+                      color: '#94a3b8',
+                      cursor: 'pointer',
+                      fontSize: '14px'
+                    }}
+                  >
+                    {showPassword ? '🙈' : '👁️'}
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '13px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', color: '#64748b' }}>
+                  <input type="checkbox" defaultChecked style={{ accentColor: '#6366f1', width: '16px', height: '16px', borderRadius: '4px' }} />
+                  Remember me
+                </label>
+                <a href="#" style={{ color: '#6366f1', textDecoration: 'none', fontWeight: '600' }}>
+                  Forgot password?
+                </a>
+              </div>
+
+              <button
+                type="submit"
+                className="mn-pill-btn"
+                disabled={loading}
+                style={{
+                  width: '100%',
+                  padding: '14px',
+                  fontSize: '16px',
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                  marginTop: '8px'
+                }}
+              >
+                {loading ? 'Authenticating...' : 'Login'}
+              </button>
+            </form>
+
+            {/* Quick Demo Credentials */}
+            <div style={{ marginTop: '28px', paddingTop: '20px', textAlign: 'center' }}>
+              <p style={{ fontSize: '12px', color: '#94a3b8', margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.6px', fontWeight: '700' }}>
+                Quick Demo Access
+              </p>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button
+                  onClick={() => handleDemoAccount('SUPER_ADMIN')}
+                  className="mn-demo-pill"
+                >
+                  Super Admin
+                </button>
+                <button
+                  onClick={() => handleDemoAccount('PROPERTY_MANAGER')}
+                  className="mn-demo-pill"
+                >
+                  Property Manager
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '12px', color: '#94a3b8' }}>
+            Powered by <span style={{ color: '#64748b', fontWeight: '600' }}>Ifix Network Ltd</span>
+          </div>
         </div>
+
       </div>
     </div>
   );
