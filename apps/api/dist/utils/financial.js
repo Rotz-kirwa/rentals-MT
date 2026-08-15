@@ -8,7 +8,7 @@ exports.formatCurrency = formatCurrency;
  * Prevents floating point inaccuracies (e.g., 0.1 + 0.2 = 0.30000000000000004).
  */
 function roundMoney(amount) {
-    const num = typeof amount === 'object' && 'toNumber' in amount ? amount.toNumber() : Number(amount);
+    const num = typeof amount === 'object' && amount !== null && 'toNumber' in amount ? amount.toNumber() : Number(amount);
     if (isNaN(num))
         return 0;
     return Math.round((num + Number.EPSILON) * 100) / 100;

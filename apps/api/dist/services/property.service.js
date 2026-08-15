@@ -5,12 +5,50 @@ const database_1 = require("@my-nyumba/database");
 const financial_js_1 = require("../utils/financial.js");
 class PropertyService {
     static async listProperties() {
-        return database_1.prisma.property.findMany({
+        const properties = await database_1.prisma.property.findMany({
             include: {
                 landlord: { select: { id: true, fullName: true, phoneNumber: true } },
-                _count: { select: { houses: true } },
+                houses: {
+                    include: {
+                        leases: { where: { status: 'ACTIVE' } },
+                        invoices: { where: { status: { not: 'VOID' } } },
+                    },
+                },
             },
             orderBy: { createdAt: 'desc' },
+        });
+        return properties.map((prop) => {
+            const totalUnits = prop.houses.length;
+            const occupiedUnits = prop.houses.filter((h) => h.status === 'OCCUPIED').length;
+            const vacantUnits = prop.houses.filter((h) => h.status === 'VACANT').length;
+            const maintenanceUnits = prop.houses.filter((h) => h.status === 'MAINTENANCE').length;
+            const occupancyRate = totalUnits > 0 ? Math.round((occupiedUnits / totalUnits) * 100) : 0;
+            let monthlyRevenue = 0;
+            let totalArrears = 0;
+            prop.houses.forEach((house) => {
+                house.invoices.forEach((inv) => {
+                    monthlyRevenue += Number(inv.paidAmount);
+                    totalArrears += Number(inv.balance);
+                });
+            });
+            return {
+                id: prop.id,
+                name: prop.name,
+                propertyType: prop.propertyType,
+                location: prop.location,
+                address: prop.address,
+                managementFeePercentage: Number(prop.managementFeePercentage),
+                landlord: prop.landlord,
+                stats: {
+                    totalUnits,
+                    occupiedUnits,
+                    vacantUnits,
+                    maintenanceUnits,
+                    occupancyRate,
+                    monthlyRevenue: (0, financial_js_1.roundMoney)(monthlyRevenue),
+                    totalArrears: (0, financial_js_1.roundMoney)(totalArrears),
+                },
+            };
         });
     }
     static async createProperty(data) {
@@ -30,8 +68,19 @@ class PropertyService {
             where: { id },
             include: {
                 landlord: true,
-                houses: { orderBy: { houseNumber: 'asc' } },
+                houses: {
+                    include: {
+                        leases: {
+                            where: { status: 'ACTIVE' },
+                            include: { tenant: { select: { id: true, fullName: true, phoneNumber: true, email: true } } },
+                        },
+                        maintenanceTickets: { where: { status: { in: ['PENDING', 'IN_PROGRESS'] } } },
+                        utilityReadings: { take: 1, orderBy: { readingDate: 'desc' } },
+                    },
+                    orderBy: { houseNumber: 'asc' },
+                },
                 propertyUtilities: { include: { utility: true } },
+                expenses: { take: 5, orderBy: { expenseDate: 'desc' } },
             },
         });
         if (!property) {
@@ -40,7 +89,21 @@ class PropertyService {
             err.code = 'NOT_FOUND';
             throw err;
         }
-        return property;
+        const totalUnits = property.houses.length;
+        const occupiedUnits = property.houses.filter((h) => h.status === 'OCCUPIED').length;
+        const vacantUnits = property.houses.filter((h) => h.status === 'VACANT').length;
+        const maintenanceUnits = property.houses.filter((h) => h.status === 'MAINTENANCE').length;
+        const occupancyRate = totalUnits > 0 ? Math.round((occupiedUnits / totalUnits) * 100) : 0;
+        return {
+            ...property,
+            stats: {
+                totalUnits,
+                occupiedUnits,
+                vacantUnits,
+                maintenanceUnits,
+                occupancyRate,
+            },
+        };
     }
     static async listHouses(propertyId, status) {
         const where = {};
@@ -54,8 +117,11 @@ class PropertyService {
                 property: { select: { id: true, name: true, location: true } },
                 leases: {
                     where: { status: 'ACTIVE' },
-                    include: { tenant: { select: { id: true, fullName: true, phoneNumber: true } } },
+                    include: { tenant: { select: { id: true, fullName: true, phoneNumber: true, email: true } } },
                 },
+                maintenanceTickets: { where: { status: { in: ['PENDING', 'IN_PROGRESS'] } } },
+                utilityReadings: { take: 2, orderBy: { readingDate: 'desc' } },
+                invoices: { take: 5, orderBy: { dueDate: 'desc' } },
             },
             orderBy: { houseNumber: 'asc' },
         });

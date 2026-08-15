@@ -56,8 +56,8 @@ export class BillingService {
       };
     }
 
-    const leaseIds = activeLeases.map((l) => l.id);
-    const houseIds = activeLeases.map((l) => l.houseId);
+    const leaseIds = activeLeases.map((l: any) => l.id);
+    const houseIds = activeLeases.map((l: any) => l.houseId);
 
     // 2. Batch load existing invoices for this billing period (Idempotency check)
     const existingInvoices = await prisma.invoice.findMany({
@@ -68,7 +68,7 @@ export class BillingService {
       },
       select: { leaseId: true },
     });
-    const existingLeaseIdSet = new Set(existingInvoices.map((inv) => inv.leaseId));
+    const existingLeaseIdSet = new Set(existingInvoices.map((inv: any) => inv.leaseId));
 
     // 3. Batch load all unbilled utility readings across all active houses
     const allUnbilledReadings = await prisma.utilityReading.findMany({
@@ -125,7 +125,7 @@ export class BillingService {
       const invNum = `INV-${year}${String(month).padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`;
       const dueDate = new Date(year, month - 1, lease.rentDueDay);
 
-      await prisma.$transaction(async (tx) => {
+      await prisma.$transaction(async (tx: any) => {
         await tx.invoice.create({
           data: {
             invoiceNumber: invNum,
@@ -146,7 +146,7 @@ export class BillingService {
 
         if (houseReadings.length > 0) {
           await tx.utilityReading.updateMany({
-            where: { id: { in: houseReadings.map((u) => u.id) } },
+            where: { id: { in: houseReadings.map((u: any) => u.id) } },
             data: { isBilled: true },
           });
         }

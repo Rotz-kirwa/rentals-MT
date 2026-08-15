@@ -73,7 +73,7 @@ export class MpesaService {
     if (targetInvoiceId && mpesaReceiptNumber && amount) {
       const payAmount = roundMoney(Number(amount));
 
-      await prisma.$transaction(async (tx) => {
+      await prisma.$transaction(async (tx: any) => {
         // Record payment & update invoice
         const paymentResult = await PaymentService.recordPayment({
           invoiceId: targetInvoiceId,

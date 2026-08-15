@@ -66,7 +66,7 @@ export class LeaseService {
     const totalMoveIn = roundMoney(rentAmt + depositAmt);
 
     // ATOMIC TRANSACTION: Lease + Unit status OCCUPIED + Move-In Invoice
-    return prisma.$transaction(async (tx) => {
+    return prisma.$transaction(async (tx: any) => {
       const lease = await tx.lease.create({
         data: {
           houseId: data.houseId,

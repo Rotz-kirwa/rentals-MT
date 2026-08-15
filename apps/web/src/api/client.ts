@@ -41,8 +41,10 @@ async function request<T>(endpoint: string, options: RequestInit = {}, token?: s
 }
 
 export const apiClient = {
-  get: <T>(endpoint: string, token?: string | null) => request<T>(endpoint, { method: 'GET' }, token),
-  post: <T>(endpoint: string, body: any, token?: string | null) => request<T>(endpoint, { method: 'POST', body: JSON.stringify(body) }, token),
-  patch: <T>(endpoint: string, body: any, token?: string | null) => request<T>(endpoint, { method: 'PATCH', body: JSON.stringify(body) }, token),
-  delete: <T>(endpoint: string, token?: string | null) => request<T>(endpoint, { method: 'DELETE' }, token),
+  get: <T = any>(endpoint: string, token?: string | null) => request<T>(endpoint, { method: 'GET' }, token),
+  post: <T = any>(endpoint: string, body?: any, token?: string | null) => request<T>(endpoint, { method: 'POST', body: JSON.stringify(body) }, token),
+  patch: <T = any>(endpoint: string, body?: any, token?: string | null) => request<T>(endpoint, { method: 'PATCH', body: JSON.stringify(body) }, token),
+  delete: <T = any>(endpoint: string, token?: string | null) => request<T>(endpoint, { method: 'DELETE' }, token),
 };
+
+export const api = apiClient;
