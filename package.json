@@ -13,10 +13,10 @@
     "dev:api": "npm run dev --workspace=apps/api",
     "dev:web": "npm run dev --workspace=apps/web",
     "postinstall": "npm run db:generate",
-    "build": "npm run db:generate --workspace=packages/database && npm run build --workspaces --if-present",
+    "build": "npm run db:generate && npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "db:generate": "npm run db:generate --workspace=packages/database",
-    "db:push": "npm run db:push --workspace=packages/database"
+    "db:generate": "npx prisma generate --schema=packages/database/prisma/schema.prisma",
+    "db:push": "npx prisma db push --schema=packages/database/prisma/schema.prisma"
   },
   "devDependencies": {
     "concurrently": "^9.2.4",
