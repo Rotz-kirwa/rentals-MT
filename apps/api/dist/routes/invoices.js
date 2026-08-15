@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const billing_controller_js_1 = require("../controllers/billing.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/invoices', billing_controller_js_1.BillingController.listInvoices);
+router.get('/invoices/:id', billing_controller_js_1.BillingController.getInvoiceById);
+router.post('/invoices/generate-monthly', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER', 'FINANCE_OFFICER']), billing_controller_js_1.BillingController.generateMonthlyInvoices);
+exports.default = router;

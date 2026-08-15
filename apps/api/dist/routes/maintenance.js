@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const maintenance_controller_js_1 = require("../controllers/maintenance.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/maintenance', maintenance_controller_js_1.MaintenanceController.listTickets);
+router.post('/maintenance', maintenance_controller_js_1.MaintenanceController.createTicket);
+router.patch('/maintenance/:id', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER', 'CARETAKER']), maintenance_controller_js_1.MaintenanceController.updateTicket);
+exports.default = router;

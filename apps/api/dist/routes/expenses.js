@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const maintenance_controller_js_1 = require("../controllers/maintenance.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/expenses', maintenance_controller_js_1.MaintenanceController.listExpenses);
+router.post('/expenses', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER', 'FINANCE_OFFICER']), maintenance_controller_js_1.MaintenanceController.createExpense);
+exports.default = router;

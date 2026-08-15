@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const property_controller_js_1 = require("../controllers/property.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/properties', property_controller_js_1.PropertyController.listProperties);
+router.post('/properties', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER']), property_controller_js_1.PropertyController.createProperty);
+router.get('/properties/:id', property_controller_js_1.PropertyController.getPropertyById);
+router.get('/houses', property_controller_js_1.PropertyController.listHouses);
+router.post('/houses', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER']), property_controller_js_1.PropertyController.createHouse);
+exports.default = router;

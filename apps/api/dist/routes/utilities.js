@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const utility_controller_js_1 = require("../controllers/utility.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/utilities', utility_controller_js_1.UtilityController.listUtilities);
+router.get('/utility-readings', utility_controller_js_1.UtilityController.listReadings);
+router.post('/utility-readings', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER', 'CARETAKER']), utility_controller_js_1.UtilityController.recordReading);
+exports.default = router;

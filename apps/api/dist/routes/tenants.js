@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const lease_controller_js_1 = require("../controllers/lease.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.use(auth_js_1.requireAuth);
+router.get('/tenants', lease_controller_js_1.LeaseController.listTenants);
+router.post('/tenants', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER']), lease_controller_js_1.LeaseController.registerTenant);
+router.get('/leases', lease_controller_js_1.LeaseController.listLeases);
+router.post('/leases', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER']), lease_controller_js_1.LeaseController.executeLease);
+router.patch('/leases/:id/terminate', (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER']), lease_controller_js_1.LeaseController.terminateLease);
+exports.default = router;

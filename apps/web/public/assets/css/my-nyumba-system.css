@@ -1,0 +1,624 @@
+/* ============================================================
+   MY NYUMBA SYSTEM STYLES
+   Standard section order: Variables → Global → Layout → Components
+   → Tables → Status → Forms → Responsive
+   ============================================================ */
+
+
+.mn-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:24px}.mn-stat{background:#fff;border:1px solid #e8ebef;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}.mn-stat .label{font-size:13px;color:#68707a}.mn-stat .value{font-size:27px;font-weight:700;margin:5px 0}.mn-stat .sub{font-size:12px;color:#6c757d}.mn-card{background:#fff;border:1px solid #e8ebef;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}.mn-card-head{padding:18px 20px;border-bottom:1px solid #edf0f2;display:flex;justify-content:space-between;align-items:center}.mn-card-body{padding:20px}.mn-table{width:100%;border-collapse:collapse}.mn-table th,.mn-table td{padding:13px 14px;border-bottom:1px solid #edf0f2;text-align:left}.mn-table th{font-size:12px;text-transform:uppercase;color:#68707a;background:#f8f9fa}.mn-badge{display:inline-block;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600}.mn-paid{background:#dff5e8;color:#177245}.mn-due{background:#fff1c7;color:#856404}.mn-overdue{background:#fde2e2;color:#b42318}.mn-vacant{background:#e5f0ff;color:#1557a6}.mn-occupied{background:#e3f7ed;color:#18794e}.mn-maint{background:#eee8ff;color:#6546a8}.mn-house-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}.mn-house{border:1px solid #e8ebef;border-radius:14px;overflow:hidden;background:#fff}.mn-house-img{height:145px;background:linear-gradient(135deg,#dbe8f7,#f5f7fa);display:flex;align-items:center;justify-content:center;color:#6c757d;font-size:42px}.mn-house-body{padding:17px}.mn-house-footer{padding:12px 17px;border-top:1px solid #eee;display:flex;justify-content:space-between}.mn-kpi{font-size:13px;color:#6c757d}.mn-kpi strong{display:block;font-size:21px;color:#212529}.mn-form-section{font-weight:700;font-size:15px;border-bottom:1px solid #eee;padding-bottom:10px;margin:10px 0 18px}.mn-alert{padding:14px 16px;border-radius:10px;margin-bottom:10px}.mn-alert-danger{background:#fff0f0;color:#9d1c1c}.mn-alert-warning{background:#fff8df;color:#765800}.mn-alert-info{background:#edf6ff;color:#145b91}
+
+.mn-avatar-icon{width:40px;height:40px;min-width:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#eef2f6;color:#59636e;font-size:18px;border:1px solid #dfe4e8}
+.mn-avatar-icon.sm{width:32px;height:32px;min-width:32px;font-size:14px}
+.mn-message-row,.mn-notification-row{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #edf0f2}
+.mn-message-row:last-child,.mn-notification-row:last-child{border-bottom:0}
+
+/* Rental status table styling — inspired by the clean CRM list layout. */
+.mn-table tbody tr.mn-row-occupied{background:#eaf8ef}
+.mn-table tbody tr.mn-row-vacant{background:#fff0f0}
+.mn-table tbody tr.mn-row-maint{background:#f1f3f5}
+.mn-table tbody tr.mn-row-occupied:hover{background:#def3e6}
+.mn-table tbody tr.mn-row-vacant:hover{background:#ffe4e4}
+.mn-table tbody tr.mn-row-maint:hover{background:#e7eaed}
+.mn-table tbody tr.mn-row-occupied td:first-child{border-left:4px solid #20a66a}
+.mn-table tbody tr.mn-row-vacant td:first-child{border-left:4px solid #dc3545}
+.mn-table tbody tr.mn-row-maint td:first-child{border-left:4px solid #6c757d}
+.mn-badge.mn-vacant{background:#fde2e2;color:#b42318}
+.mn-badge.mn-occupied{background:#dff5e8;color:#177245}
+.mn-badge.mn-maint{background:#e9ecef;color:#495057}
+.mn-status-legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mn-status-legend .legend-label{font-size:12px;color:#6c757d;margin-right:2px}
+.mn-table .mn-number{font-weight:700;color:#212529;white-space:nowrap}
+.mn-table .mn-property{font-weight:600;color:#303740}
+.mn-table .mn-muted{font-size:12px;color:#6c757d}
+.mn-table .mn-actions{white-space:nowrap}
+.mn-table tbody tr{transition:background .15s ease}
+
+/* Houses / Units register */
+.houses-register-table{min-width:1180px}.houses-register-table th{white-space:nowrap}.houses-register-table td{vertical-align:middle}.houses-register-table .mn-number{min-width:95px}.houses-register-table .mn-property{min-width:175px}.houses-register-table .mn-actions{min-width:100px}.houses-register-table tbody tr.mn-row-occupied td:first-child{border-left:4px solid #20a66a}.houses-register-table tbody tr.mn-row-vacant td:first-child{border-left:4px solid #dc3545}.houses-register-table tbody tr.mn-row-maint td:first-child{border-left:4px solid #6c757d}
+
+/* ================================================================
+   Global CRM-style tables
+   Keeps every register/list page visually consistent with
+   Properties and Houses / Units.
+   ================================================================ */
+.mn-table,
+.billing-table,
+.main .card .table,
+.main .card table.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  font-size:13px;
+}
+.mn-table thead th,
+.billing-table thead th,
+.main .card .table thead th,
+.main .card table.table thead th{
+  padding:13px 14px;
+  background:#f7f8fa;
+  color:#68707a;
+  border-bottom:1px solid #e6e9ed;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+.mn-table tbody td,
+.billing-table tbody td,
+.main .card .table tbody td,
+.main .card table.table tbody td{
+  padding:13px 14px;
+  border-bottom:1px solid #edf0f2;
+  color:#303740;
+  vertical-align:middle;
+  background:#fff;
+}
+.mn-table tbody tr,
+.billing-table tbody tr,
+.main .card .table tbody tr,
+.main .card table.table tbody tr{
+  transition:background-color .15s ease, box-shadow .15s ease;
+}
+.mn-table tbody tr:hover td,
+.billing-table tbody tr:hover td,
+.main .card .table tbody tr:hover td,
+.main .card table.table tbody tr:hover td{
+  background:#f8fafc;
+}
+.mn-table tbody tr:last-child td,
+.billing-table tbody tr:last-child td,
+.main .card .table tbody tr:last-child td,
+.main .card table.table tbody tr:last-child td{border-bottom:0}
+
+/* Status-aware rows used by registers across the system. */
+.mn-table tbody tr.status-occupied td,
+.billing-table tbody tr.status-occupied td,
+.main .card table tbody tr.status-occupied td{background:#eaf8ef}
+.mn-table tbody tr.status-vacant td,
+.billing-table tbody tr.status-vacant td,
+.main .card table tbody tr.status-vacant td{background:#fff0f0}
+.mn-table tbody tr.status-maintenance td,
+.billing-table tbody tr.status-maintenance td,
+.main .card table tbody tr.status-maintenance td{background:#f1f3f5}
+.mn-table tbody tr.status-overdue td,
+.billing-table tbody tr.status-overdue td{background:#fff7f7}
+
+.mn-table tbody tr.status-occupied td:first-child,
+.billing-table tbody tr.status-occupied td:first-child{border-left:4px solid #20a66a}
+.mn-table tbody tr.status-vacant td:first-child,
+.billing-table tbody tr.status-vacant td:first-child{border-left:4px solid #dc3545}
+.mn-table tbody tr.status-maintenance td:first-child,
+.billing-table tbody tr.status-maintenance td:first-child{border-left:4px solid #6c757d}
+.mn-table tbody tr.status-overdue td:first-child,
+.billing-table tbody tr.status-overdue td:first-child{border-left:4px solid #dc3545}
+
+/* Make list/register tables breathe like the reference CRM screen. */
+.main .table-responsive{
+  border-radius:10px;
+}
+.main .table-responsive > table{
+  margin-bottom:0;
+}
+.main .card,
+.main .mn-card{
+  border-color:#e8ebef;
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.main .card .card-body{padding:20px}
+
+/* Consistent action controls in tables. */
+.mn-table .btn-sm,
+.billing-table .btn-sm,
+.main .card table .btn-sm{font-size:12px}
+.mn-table a:not(.btn),
+.billing-table a:not(.btn),
+.main .card table a:not(.btn){font-weight:600}
+
+@media(max-width:768px){
+  .mn-table,
+  .billing-table,
+  .main .card .table{min-width:900px}
+  .main .table-responsive{overflow-x:auto}
+}
+
+
+/* ============================================================
+   10. STATUS-AWARE TABLE ROWS
+   ============================================================ */
+
+/*
+ * Apply these classes to the <tr> element.
+ * The background is intentionally soft so text remains readable.
+ */
+
+.mn-table tbody tr.status-occupied,
+.mn-table tbody tr.status-paid,
+.mn-table tbody tr.status-active,
+.mn-table tbody tr.status-approved {
+    background-color: #eaf7ee;
+}
+
+.mn-table tbody tr.status-vacant,
+.mn-table tbody tr.status-overdue,
+.mn-table tbody tr.status-rejected,
+.mn-table tbody tr.status-failed {
+    background-color: #fdecec;
+}
+
+.mn-table tbody tr.status-maintenance,
+.mn-table tbody tr.status-inactive,
+.mn-table tbody tr.status-closed {
+    background-color: #f1f3f5;
+}
+
+.mn-table tbody tr.status-pending,
+.mn-table tbody tr.status-awaiting {
+    background-color: #fff8df;
+}
+
+.mn-table tbody tr.status-available,
+.mn-table tbody tr.status-processing,
+.mn-table tbody tr.status-in-progress {
+    background-color: #eaf4ff;
+}
+
+.mn-table tbody tr.status-reserved,
+.mn-table tbody tr.status-draft {
+    background-color: #f4edff;
+}
+
+/* Keep the status color visible on hover without losing readability. */
+.mn-table tbody tr.status-occupied:hover,
+.mn-table tbody tr.status-paid:hover,
+.mn-table tbody tr.status-active:hover,
+.mn-table tbody tr.status-approved:hover {
+    background-color: #dff1e5;
+}
+
+.mn-table tbody tr.status-vacant:hover,
+.mn-table tbody tr.status-overdue:hover,
+.mn-table tbody tr.status-rejected:hover,
+.mn-table tbody tr.status-failed:hover {
+    background-color: #f9dcdc;
+}
+
+.mn-table tbody tr.status-maintenance:hover,
+.mn-table tbody tr.status-inactive:hover,
+.mn-table tbody tr.status-closed:hover {
+    background-color: #e7eaed;
+}
+
+.mn-table tbody tr.status-pending:hover,
+.mn-table tbody tr.status-awaiting:hover {
+    background-color: #fff0bd;
+}
+
+.mn-table tbody tr.status-available:hover,
+.mn-table tbody tr.status-processing:hover,
+.mn-table tbody tr.status-in-progress:hover {
+    background-color: #dcecff;
+}
+
+.mn-table tbody tr.status-reserved:hover,
+.mn-table tbody tr.status-draft:hover {
+    background-color: #eadcff;
+}
+
+/* Optional status indicator at the left edge of each row. */
+.mn-table tbody tr.status-occupied,
+.mn-table tbody tr.status-paid,
+.mn-table tbody tr.status-active,
+.mn-table tbody tr.status-approved { border-left: 4px solid #198754; }
+
+.mn-table tbody tr.status-vacant,
+.mn-table tbody tr.status-overdue,
+.mn-table tbody tr.status-rejected,
+.mn-table tbody tr.status-failed { border-left: 4px solid #dc3545; }
+
+.mn-table tbody tr.status-maintenance,
+.mn-table tbody tr.status-inactive,
+.mn-table tbody tr.status-closed { border-left: 4px solid #6c757d; }
+
+.mn-table tbody tr.status-pending,
+.mn-table tbody tr.status-awaiting { border-left: 4px solid #ffc107; }
+
+.mn-table tbody tr.status-available,
+.mn-table tbody tr.status-processing,
+.mn-table tbody tr.status-in-progress { border-left: 4px solid #0d6efd; }
+
+.mn-table tbody tr.status-reserved,
+.mn-table tbody tr.status-draft { border-left: 4px solid #6f42c1; }
+
+/* ============================================================
+   11. STATUS BADGES
+   ============================================================ */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge.status-occupied,
+.status-badge.status-paid,
+.status-badge.status-active,
+.status-badge.status-approved {
+    color: #146c43;
+    background: #d1e7dd;
+}
+
+.status-badge.status-vacant,
+.status-badge.status-overdue,
+.status-badge.status-rejected,
+.status-badge.status-failed {
+    color: #b02a37;
+    background: #f8d7da;
+}
+
+.status-badge.status-maintenance,
+.status-badge.status-inactive,
+.status-badge.status-closed {
+    color: #495057;
+    background: #dee2e6;
+}
+
+.status-badge.status-pending,
+.status-badge.status-awaiting {
+    color: #856404;
+    background: #fff3cd;
+}
+
+.status-badge.status-available,
+.status-badge.status-processing,
+.status-badge.status-in-progress {
+    color: #084298;
+    background: #cfe2ff;
+}
+
+.status-badge.status-reserved,
+.status-badge.status-draft {
+    color: #59359a;
+    background: #e2d9f3;
+}
+
+
+/* ============================================================
+   15. GLOBAL STATUS TABLE ROW DESIGN
+   ============================================================
+   All application tables use the same status language.
+   Apply the status class to the <tr>, not only the badge.
+   Table cells remain transparent so the row background is visible.
+   ============================================================ */
+
+/* Base table treatment */
+.main table tbody tr {
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main table tbody tr[class*="status-"] td,
+.main table tbody tr[class*="mn-row-"] td,
+.main table tbody tr[class*="status-"] th,
+.main table tbody tr[class*="mn-row-"] th {
+    background-color: transparent !important;
+}
+
+/* GREEN — positive / completed states */
+.main table tbody tr.status-occupied,
+.main table tbody tr.status-paid,
+.main table tbody tr.status-active,
+.main table tbody tr.status-approved,
+.main table tbody tr.status-completed,
+.main table tbody tr.mn-row-occupied {
+    background-color: #eaf7ee !important;
+    box-shadow: inset 4px 0 0 #198754;
+}
+
+.main table tbody tr.status-occupied:hover,
+.main table tbody tr.status-paid:hover,
+.main table tbody tr.status-active:hover,
+.main table tbody tr.status-approved:hover,
+.main table tbody tr.status-completed:hover,
+.main table tbody tr.mn-row-occupied:hover {
+    background-color: #dff1e5 !important;
+}
+
+/* RED — vacancy / financial attention / rejection */
+.main table tbody tr.status-vacant,
+.main table tbody tr.status-overdue,
+.main table tbody tr.status-rejected,
+.main table tbody tr.status-failed,
+.main table tbody tr.status-cancelled,
+.main table tbody tr.mn-row-vacant {
+    background-color: #fdecec !important;
+    box-shadow: inset 4px 0 0 #dc3545;
+}
+
+.main table tbody tr.status-vacant:hover,
+.main table tbody tr.status-overdue:hover,
+.main table tbody tr.status-rejected:hover,
+.main table tbody tr.status-failed:hover,
+.main table tbody tr.status-cancelled:hover,
+.main table tbody tr.mn-row-vacant:hover {
+    background-color: #f9dcdc !important;
+}
+
+/* GREY — maintenance / inactive / closed */
+.main table tbody tr.status-maintenance,
+.main table tbody tr.status-inactive,
+.main table tbody tr.status-closed,
+.main table tbody tr.mn-row-maint,
+.main table tbody tr.mn-row-maintenance {
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 4px 0 0 #6c757d;
+}
+
+.main table tbody tr.status-maintenance:hover,
+.main table tbody tr.status-inactive:hover,
+.main table tbody tr.status-closed:hover,
+.main table tbody tr.mn-row-maint:hover,
+.main table tbody tr.mn-row-maintenance:hover {
+    background-color: #e7eaed !important;
+}
+
+/* YELLOW — waiting / action required */
+.main table tbody tr.status-pending,
+.main table tbody tr.status-awaiting,
+.main table tbody tr.status-due,
+.main table tbody tr.status-open {
+    background-color: #fff8df !important;
+    box-shadow: inset 4px 0 0 #ffc107;
+}
+
+.main table tbody tr.status-pending:hover,
+.main table tbody tr.status-awaiting:hover,
+.main table tbody tr.status-due:hover,
+.main table tbody tr.status-open:hover {
+    background-color: #fff0bd !important;
+}
+
+/* BLUE — available / processing / in progress */
+.main table tbody tr.status-available,
+.main table tbody tr.status-processing,
+.main table tbody tr.status-in-progress {
+    background-color: #eaf4ff !important;
+    box-shadow: inset 4px 0 0 #0d6efd;
+}
+
+.main table tbody tr.status-available:hover,
+.main table tbody tr.status-processing:hover,
+.main table tbody tr.status-in-progress:hover {
+    background-color: #dcecff !important;
+}
+
+/* PURPLE — reserved / draft */
+.main table tbody tr.status-reserved,
+.main table tbody tr.status-draft {
+    background-color: #f4edff !important;
+    box-shadow: inset 4px 0 0 #6f42c1;
+}
+
+.main table tbody tr.status-reserved:hover,
+.main table tbody tr.status-draft:hover {
+    background-color: #eadcff !important;
+}
+
+/* Keep the same design for billing/register table classes */
+.mn-table tbody tr[class*="status-"],
+.billing-table tbody tr[class*="status-"],
+.main .card table tbody tr[class*="status-"] {
+    border-left-width: 0;
+}
+
+/* Consistent status badges */
+.main table .status-badge,
+.main table .mn-badge {
+    font-weight: 600;
+}
+
+/* Responsive tables keep status coloring intact */
+@media (max-width: 768px) {
+    .main table tbody tr[class*="status-"] td,
+    .main table tbody tr[class*="mn-row-"] td {
+        background-color: transparent !important;
+    }
+}
+
+
+/* ============================================================
+   16. STATUS DETECTION FROM BADGES
+   ============================================================
+   Pages that only assign the status to the badge are also covered.
+   This keeps every register table visually consistent without
+   changing page logic or database queries.
+   ============================================================ */
+
+.main table tbody tr:has(.status-badge.status-occupied),
+.main table tbody tr:has(.status-badge.status-paid),
+.main table tbody tr:has(.status-badge.status-active),
+.main table tbody tr:has(.status-badge.status-approved),
+.main table tbody tr:has(.status-badge.status-completed),
+.main table tbody tr:has(.mn-badge.mn-occupied) {
+    background-color: #eaf7ee !important;
+    box-shadow: inset 4px 0 0 #198754;
+}
+
+.main table tbody tr:has(.status-badge.status-vacant),
+.main table tbody tr:has(.status-badge.status-overdue),
+.main table tbody tr:has(.status-badge.status-rejected),
+.main table tbody tr:has(.status-badge.status-failed),
+.main table tbody tr:has(.status-badge.status-cancelled),
+.main table tbody tr:has(.mn-badge.mn-vacant) {
+    background-color: #fdecec !important;
+    box-shadow: inset 4px 0 0 #dc3545;
+}
+
+.main table tbody tr:has(.status-badge.status-maintenance),
+.main table tbody tr:has(.status-badge.status-inactive),
+.main table tbody tr:has(.status-badge.status-closed),
+.main table tbody tr:has(.mn-badge.mn-maint) {
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 4px 0 0 #6c757d;
+}
+
+.main table tbody tr:has(.status-badge.status-pending),
+.main table tbody tr:has(.status-badge.status-awaiting),
+.main table tbody tr:has(.status-badge.status-due),
+.main table tbody tr:has(.status-badge.status-open),
+.main table tbody tr:has(.mn-badge.mn-due) {
+    background-color: #fff8df !important;
+    box-shadow: inset 4px 0 0 #ffc107;
+}
+
+.main table tbody tr:has(.status-badge.status-available),
+.main table tbody tr:has(.status-badge.status-processing),
+.main table tbody tr:has(.status-badge.status-in-progress) {
+    background-color: #eaf4ff !important;
+    box-shadow: inset 4px 0 0 #0d6efd;
+}
+
+.main table tbody tr:has(.status-badge.status-reserved),
+.main table tbody tr:has(.status-badge.status-draft) {
+    background-color: #f4edff !important;
+    box-shadow: inset 4px 0 0 #6f42c1;
+}
+
+/* Badge-driven rows also keep their color on hover. */
+.main table tbody tr:has(.status-badge.status-occupied):hover,
+.main table tbody tr:has(.status-badge.status-paid):hover,
+.main table tbody tr:has(.status-badge.status-active):hover,
+.main table tbody tr:has(.status-badge.status-approved):hover,
+.main table tbody tr:has(.status-badge.status-completed):hover,
+.main table tbody tr:has(.mn-badge.mn-occupied):hover {
+    background-color: #dff1e5 !important;
+}
+
+.main table tbody tr:has(.status-badge.status-vacant):hover,
+.main table tbody tr:has(.status-badge.status-overdue):hover,
+.main table tbody tr:has(.status-badge.status-rejected):hover,
+.main table tbody tr:has(.status-badge.status-failed):hover,
+.main table tbody tr:has(.status-badge.status-cancelled):hover,
+.main table tbody tr:has(.mn-badge.mn-vacant):hover {
+    background-color: #f9dcdc !important;
+}
+
+.main table tbody tr:has(.status-badge.status-maintenance):hover,
+.main table tbody tr:has(.status-badge.status-inactive):hover,
+.main table tbody tr:has(.status-badge.status-closed):hover,
+.main table tbody tr:has(.mn-badge.mn-maint):hover {
+    background-color: #e7eaed !important;
+}
+
+.main table tbody tr:has(.status-badge.status-pending):hover,
+.main table tbody tr:has(.status-badge.status-awaiting):hover,
+.main table tbody tr:has(.status-badge.status-due):hover,
+.main table tbody tr:has(.status-badge.status-open):hover,
+.main table tbody tr:has(.mn-badge.mn-due):hover {
+    background-color: #fff0bd !important;
+}
+
+.main table tbody tr:has(.status-badge.status-available):hover,
+.main table tbody tr:has(.status-badge.status-processing):hover,
+.main table tbody tr:has(.status-badge.status-in-progress):hover {
+    background-color: #dcecff !important;
+}
+
+.main table tbody tr:has(.status-badge.status-reserved):hover,
+.main table tbody tr:has(.status-badge.status-draft):hover {
+    background-color: #eadcff !important;
+}
+
+
+/* ============================================================
+   10A. PAGE-SPECIFIC STATUS ROWS
+   ============================================================
+
+   These classes provide explicit visual meaning where the row
+   represents a business condition rather than a generic record
+   status. Keep the colors subtle and consistent with the system.
+   ============================================================ */
+
+/* Lease Register: expiring leases are red. */
+.mn-table tbody tr.status-expiring td {
+    background-color: #fdecec !important;
+}
+.mn-table tbody tr.status-expiring td:first-child {
+    border-left: 4px solid #dc3545;
+}
+
+/* Tenants: renewal is a yellow warning. */
+.mn-table tbody tr.status-renewal td {
+    background-color: #fff8df !important;
+}
+.mn-table tbody tr.status-renewal td:first-child {
+    border-left: 4px solid #ffc107;
+}
+
+/* Maintenance: high-priority requests are red. */
+.mn-table tbody tr.status-high-priority td {
+    background-color: #fdecec !important;
+}
+.mn-table tbody tr.status-high-priority td:first-child {
+    border-left: 4px solid #dc3545;
+}
+
+/* Audit Logs: updated = yellow, login = grey. */
+.mn-table tbody tr.status-updated td {
+    background-color: #fff8df !important;
+}
+.mn-table tbody tr.status-updated td:first-child {
+    border-left: 4px solid #ffc107;
+}
+.mn-table tbody tr.status-login td {
+    background-color: #f1f3f5 !important;
+}
+.mn-table tbody tr.status-login td:first-child {
+    border-left: 4px solid #6c757d;
+}
+
+/* Dashboard: due and overdue rent both use the rent-warning yellow. */
+.mn-table tbody tr.status-rent-warning td {
+    background-color: #fff8df !important;
+}
+.mn-table tbody tr.status-rent-warning td:first-child {
+    border-left: 4px solid #ffc107;
+}
+
+/* Properties: property records stay white with a green left edge. */
+.mn-table tbody tr.property-row td {
+    background-color: #ffffff !important;
+}
+.mn-table tbody tr.property-row td:first-child {
+    border-left: 4px solid #198754;
+}
+.mn-table tbody tr.property-row:hover td {
+    background-color: #f8fafc !important;
+}

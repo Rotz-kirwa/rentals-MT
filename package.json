@@ -1,0 +1,24 @@
+{
+  "name": "my-nyumba-rental-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My Nyumba Rental Management System - TypeScript/Node.js & React Rebuild",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "start": "npm run dev",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:generate": "npm run db:generate --workspace=packages/database",
+    "db:push": "npm run db:push --workspace=packages/database"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4",
+    "typescript": "^5.4.0"
+  }
+}

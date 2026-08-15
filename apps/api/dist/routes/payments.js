@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const payment_controller_js_1 = require("../controllers/payment.controller.js");
+const mpesa_controller_js_1 = require("../controllers/mpesa.controller.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.get('/payments', auth_js_1.requireAuth, payment_controller_js_1.PaymentController.listPayments);
+router.post('/payments', auth_js_1.requireAuth, (0, auth_js_1.requireRole)(['SUPER_ADMIN', 'PROPERTY_MANAGER', 'FINANCE_OFFICER']), payment_controller_js_1.PaymentController.recordPayment);
+router.post('/payments/mpesa/stk-push', auth_js_1.requireAuth, mpesa_controller_js_1.MpesaController.initiateStkPush);
+router.post('/payments/mpesa/callback', mpesa_controller_js_1.MpesaController.handleCallback);
+exports.default = router;
