@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
+import fs from 'fs';
 import { healthRouter } from './routes/health.js';
 import authRouter from './routes/auth.js';
 import propertiesRouter from './routes/properties.js';
@@ -40,28 +42,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(globalLimiter);
 
-// Root & Health Endpoints
-app.get('/', (_req, res) => {
-  res.json({
-    name: 'My Nyumba Property Management REST API',
-    version: '1.0.0',
-    status: 'ONLINE',
-    timestamp: new Date().toISOString(),
-    endpoints: {
-      health: '/api/v1/health',
-      auth: '/api/v1/auth',
-      dashboard: '/api/v1/dashboard/stats',
-      properties: '/api/v1/properties',
-      invoices: '/api/v1/invoices',
-    },
-  });
-});
-
+// Health Check
 app.get('/health', (_req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// Register API Routes
+// Register REST API Routes
 app.use('/api/v1', healthRouter);
 app.use('/api/v1/auth', authLimiter, authRouter);
 app.use('/api/v1', propertiesRouter);
@@ -72,6 +58,39 @@ app.use('/api/v1', utilitiesRouter);
 app.use('/api/v1', maintenanceRouter);
 app.use('/api/v1', expensesRouter);
 app.use('/api/v1', dashboardRouter);
+
+// Serve Web UI Frontend Static Build (if present)
+const possibleWebDistPaths = [
+  path.resolve(process.cwd(), 'apps/web/dist'),
+  path.resolve(process.cwd(), '../web/dist'),
+  path.resolve(process.cwd(), '../../web/dist'),
+];
+
+const webDistPath = possibleWebDistPaths.find((p) => fs.existsSync(p));
+
+if (webDistPath) {
+  app.use(express.static(webDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) return next();
+    res.sendFile(path.join(webDistPath, 'index.html'));
+  });
+} else {
+  app.get('/', (_req, res) => {
+    res.json({
+      name: 'My Nyumba Property Management REST API',
+      version: '1.0.0',
+      status: 'ONLINE',
+      timestamp: new Date().toISOString(),
+      endpoints: {
+        health: '/api/v1/health',
+        auth: '/api/v1/auth',
+        dashboard: '/api/v1/dashboard/stats',
+        properties: '/api/v1/properties',
+        invoices: '/api/v1/invoices',
+      },
+    });
+  });
+}
 
 // Error Middleware
 app.use(errorHandler);
